@@ -187,12 +187,12 @@ func MapRoutes() *gin.Engine {
 	adminPagesGroup.GET("/*path", console.ShowAdminPagesAction)
 
 	indexGroup := ret.Group("")
-	indexGroup.Use(fillUser)
-	indexGroup.GET("", showIndexAction)
+	indexGroup.Use(fillUser, pjax, resolveBlog)
+	indexGroup.GET("", showArticlesAction)
 
 	initGroup := ret.Group(util.PathInit)
-	initGroup.Use(fillUser)
-	initGroup.GET("", showStartPageAction)
+	initGroup.Use(fillUser, pjax, resolveBlog)
+	initGroup.GET("", showActivitiesAction)
 
 	ret.Static(util.PathConsoleDist, "console/dist")
 	ret.StaticFile(util.PathChangelogs, "changelogs.html")
@@ -302,6 +302,7 @@ func routePath(c *gin.Context) {
 		return
 	}
 	if "/" == path {
+		logger.Info("111 path")
 		showArticlesAction(c)
 
 		return

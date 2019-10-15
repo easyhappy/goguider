@@ -18,6 +18,7 @@ package controller
 
 import (
 	"bytes"
+	"fmt"
 	"html/template"
 	"net/http"
 	"strconv"
@@ -37,6 +38,8 @@ func showArticlesAction(c *gin.Context) {
 	page := util.GetPage(c)
 	dataModel := getDataModel(c)
 	blogID := getBlogID(c)
+
+	logger.Info("blogId", blogID)
 	session := util.GetSession(c)
 	articleListStyleSetting := service.Setting.GetSetting(model.SettingCategoryPreference, model.SettingNamePreferenceArticleListStyle, blogID)
 	articleModels, pagination := service.Article.GetArticles("", page, blogID)
@@ -47,7 +50,7 @@ func showArticlesAction(c *gin.Context) {
 		for _, tagStr := range tagStrs {
 			themeTag := &model.ThemeTag{
 				Title: tagStr,
-				URL:   getBlogURL(c) + util.PathTags + "/" + tagStr,
+				URL:   "/blogs" + util.PathTags + "/" + tagStr,
 			}
 			themeTags = append(themeTags, themeTag)
 		}
@@ -61,7 +64,7 @@ func showArticlesAction(c *gin.Context) {
 
 		author := &model.ThemeAuthor{
 			Name:      authorModel.Name,
-			URL:       getBlogURL(c) + util.PathAuthors + "/" + authorModel.Name,
+			URL:       "/blogs" + util.PathAuthors + "/" + authorModel.Name,
 			AvatarURL: authorModel.AvatarURL,
 		}
 
@@ -88,7 +91,7 @@ func showArticlesAction(c *gin.Context) {
 			CreatedAtDay:   articleModel.CreatedAt.Format("02"),
 			Title:          pangu.SpacingText(articleModel.Title),
 			Tags:           themeTags,
-			URL:            getBlogURL(c) + articleModel.Path,
+			URL:            "/blogs" + articleModel.Path,
 			Topped:         articleModel.Topped,
 			ViewCount:      articleModel.ViewCount,
 			CommentCount:   articleModel.CommentCount,
@@ -98,10 +101,13 @@ func showArticlesAction(c *gin.Context) {
 
 		articles = append(articles, article)
 	}
+	fmt.Print()
 
 	dataModel["Articles"] = articles
 	dataModel["Pagination"] = pagination
-	c.HTML(http.StatusOK, getTheme(c)+"/index.html", dataModel)
+	logger.Info("test-------")
+	fmt.Println("getTheme(c)")
+	c.HTML(http.StatusOK, "Littlewin" +"/index.html", dataModel)
 }
 
 func showArticleAction(c *gin.Context) {

@@ -53,13 +53,16 @@ func fillUser(c *gin.Context) {
 }
 
 func resolveBlog(c *gin.Context) {
-	username := c.Param("username")
+	//username := c.Param("username")
+	username := "easyhappy"
 	if "" == username {
 		notFound(c)
+
 		c.Abort()
 
 		return
 	}
+
 	user := service.User.GetUserByName(username)
 	if nil == user {
 		notFound(c)
@@ -79,7 +82,9 @@ func resolveBlog(c *gin.Context) {
 	fillCommon(c)
 	go service.Statistic.IncViewCount(userBlog.ID)
 
-	path := strings.Split(c.Request.RequestURI, username)[1]
+	path := ""
+	path = "/manifest.json" //strings.Split(c.Request.RequestURI, username)[1]
+
 	path = strings.TrimSpace(path)
 	if end := strings.Index(path, "?"); 0 < end {
 		path = path[:end]
@@ -319,9 +324,13 @@ func getBlogURL(c *gin.Context) string {
 }
 
 func getBlogID(c *gin.Context) uint64 {
-	userBlogVal, _ := c.Get("userBlog")
-
-	return userBlogVal.(*service.UserBlog).ID
+	return 1;
+	//defer func() uint64 {
+	//	return 1
+	//}()
+	//userBlogVal, _ := c.Get("userBlog")
+	//fmt.Printf("%f", userBlogVal.(*service.UserBlog).ID)
+	//return userBlogVal.(*service.UserBlog).ID
 }
 
 func getTheme(c *gin.Context) string {
