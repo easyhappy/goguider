@@ -25,16 +25,16 @@ const Common = {
       $('.header__links').slideToggle()
     })
 
-    new APlayer({
-      container: document.getElementById('player'),
-      autoplay: false,
-      theme: '#ccc',
-      preload: 'auto',
-      lrcType: 3,
-      listFolded: false,
-      audio: [
-      ],
-    })
+    // new APlayer({
+    //   container: document.getElementById('player'),
+    //   autoplay: false,
+    //   theme: '#ccc',
+    //   preload: 'auto',
+    //   lrcType: 3,
+    //   listFolded: false,
+    //   audio: [
+    //   ],
+    // })
 
     initPjax(() => {
       if ($('#pipeComments').length === 1) {
