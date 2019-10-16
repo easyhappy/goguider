@@ -27,36 +27,12 @@ const Common = {
 
     new APlayer({
       container: document.getElementById('player'),
-      autoplay: true,
+      autoplay: false,
       theme: '#ccc',
       preload: 'auto',
       lrcType: 3,
-      listFolded: true,
+      listFolded: false,
       audio: [
-        {
-          name: 'Kiss The Rain',
-          artist: '이루마',
-          url: `${$('#pipeLang').data('staticserver')}/theme/x/Littlewin/images/kisstherain.mp3`,
-          cover: `${$('#pipeLang').data('staticserver')}/theme/x/Littlewin/images/kisstherain.jpeg`,
-          lrc: `${$('#pipeLang').data('staticserver')}/theme/x/Littlewin/images/kisstherain.lrc`,
-          theme: '#60b044',
-        },
-        {
-          name: 'L\'ESPOIR',
-          artist: 'Richard',
-          url: `${$('#pipeLang').data('staticserver')}/theme/x/Littlewin/images/LESPOIR.mp3`,
-          cover: `${$('#pipeLang').data('staticserver')}/theme/x/Littlewin/images/LESPOIR.jpeg`,
-          lrc: `${$('#pipeLang').data('staticserver')}/theme/x/Littlewin/images/LESPOIR.lrc`,
-          theme: '#60b044',
-        },
-        {
-          name: 'ACOMMAMOUR',
-          artist: 'Richard',
-          url: `${$('#pipeLang').data('staticserver')}/theme/x/Littlewin/images/ACOMMAMOUR.mp3`,
-          cover: `${$('#pipeLang').data('staticserver')}/theme/x/Littlewin/images/ACOMMAMOUR.jpeg`,
-          lrc: `${$('#pipeLang').data('staticserver')}/theme/x/Littlewin/images/ACOMMAMOUR.lrc`,
-          theme: '#60b044',
-        },
       ],
     })
 
