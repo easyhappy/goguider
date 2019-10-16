@@ -71,6 +71,7 @@ func resolveBlog(c *gin.Context) {
 		return
 	}
 	userBlog := service.User.GetOwnBlog(user.ID)
+	logger.Info("------ userBlog")
 	if nil == userBlog {
 		notFound(c)
 		c.Abort()
@@ -79,11 +80,12 @@ func resolveBlog(c *gin.Context) {
 	}
 	c.Set("userBlog", userBlog)
 
+
+
 	fillCommon(c)
 	go service.Statistic.IncViewCount(userBlog.ID)
 
-	path := ""
-	path = "/manifest.json" //strings.Split(c.Request.RequestURI, username)[1]
+	path := strings.Split(c.Request.RequestURI, username)[1]
 
 	path = strings.TrimSpace(path)
 	if end := strings.Index(path, "?"); 0 < end {
