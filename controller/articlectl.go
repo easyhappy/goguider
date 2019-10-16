@@ -91,7 +91,7 @@ func showArticlesAction(c *gin.Context) {
 			CreatedAtDay:   articleModel.CreatedAt.Format("02"),
 			Title:          pangu.SpacingText(articleModel.Title),
 			Tags:           themeTags,
-			URL:            "/blogs" + articleModel.Path,
+			URL:            "/blogs/easyhappy" + articleModel.Path,
 			Topped:         articleModel.Topped,
 			ViewCount:      articleModel.ViewCount,
 			CommentCount:   articleModel.CommentCount,
