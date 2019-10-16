@@ -85,7 +85,11 @@ func resolveBlog(c *gin.Context) {
 	fillCommon(c)
 	go service.Statistic.IncViewCount(userBlog.ID)
 
-	path := strings.Split(c.Request.RequestURI, username)[1]
+	path := c.Request.RequestURI
+	if c.Request.RequestURI == "/" {
+		path = "/path/easyhappy"
+	}
+	path = strings.Split(path, username)[1]
 
 	path = strings.TrimSpace(path)
 	if end := strings.Index(path, "?"); 0 < end {
