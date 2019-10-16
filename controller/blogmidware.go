@@ -89,7 +89,10 @@ func resolveBlog(c *gin.Context) {
 	if c.Request.RequestURI == "/" {
 		path = "/path/easyhappy"
 	}
-	path = strings.Split(path, username)[1]
+	
+	if path != "/start" {
+		path = strings.Split(path, username)[1]
+	}
 
 	path = strings.TrimSpace(path)
 	if end := strings.Index(path, "?"); 0 < end {

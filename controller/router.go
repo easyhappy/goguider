@@ -192,7 +192,7 @@ func MapRoutes() *gin.Engine {
 
 	initGroup := ret.Group(util.PathInit)
 	initGroup.Use(fillUser, pjax, resolveBlog)
-	initGroup.GET("", showActivitiesAction)
+	initGroup.GET("", showStartPageAction)
 
 	ret.Static(util.PathConsoleDist, "console/dist")
 	ret.StaticFile(util.PathChangelogs, "changelogs.html")
