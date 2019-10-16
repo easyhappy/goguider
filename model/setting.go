@@ -62,7 +62,7 @@ const (
 const (
 	SettingBasicFooterDefault           = "<!-- 这里可用于放置备案信息等，支持 Markdown -->"
 	SettingBasicHeaderDefault           = "<!-- https://github.com/b3log/pipe/issues/54 -->"
-	SettingBasicBasicNoticeBoardDefault = "<!-- 支持 Markdown -->本博客由 [Pipe](https://github.com/b3log/pipe) 强力驱动"
+	SettingBasicBasicNoticeBoardDefault = "<!-- 如果你对 Go 感兴趣, 可以关注我的公众号: GoGuider"
 )
 
 // Setting names of category "preference".
