@@ -1,5 +1,5 @@
 {
-    "Server": "http://localhost:5897",
+    "Server": "http://localhost:5898",
     "StaticServer": "",
     "StaticResourceVersion": "1616842446826",
     "RuntimeMode": "dev",
@@ -10,7 +10,7 @@
     "SQLite": "${home}/pipe.db",
     "MySQL": "user:password@(localhost:3306)/pipe?charset=utf8mb4&parseTime=True&loc=Local&timeout=1s&readTimeout=16s&writeTimeout=16s",
     "Postgres": "postgres://user:password@localhost:5432/pipe?search_path=pipe&sslmode=disable",
-    "Port": "5897",
+    "Port": "5898",
     "AxiosBaseURL": "/api",
     "MockServer": "http://localhost:8888"
 }
