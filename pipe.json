@@ -1,5 +1,5 @@
 {
-    "Server": "https://code.investguider.com",
+    "Server": "http://127.0.0.1:5898",
     "StaticServer": "",
     "StaticResourceVersion": "1616842446826",
     "RuntimeMode": "dev",

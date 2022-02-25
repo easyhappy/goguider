@@ -11,14 +11,11 @@
 package controller
 
 import (
+	"github.com/88250/pipe/util"
 	"io/ioutil"
 	"net/http"
 	"path/filepath"
 	"strings"
-	"text/template"
-
-	"github.com/88250/pipe/util"
-
 	"github.com/88250/gulu"
 	"github.com/88250/pipe/model"
 	"github.com/88250/pipe/service"
@@ -26,15 +23,16 @@ import (
 )
 
 func showIndexAction(c *gin.Context) {
-	t, err := template.ParseFiles("console/dist/index.html")
-	if nil != err {
-		logger.Errorf("load index page failed: " + err.Error())
-		c.String(http.StatusNotFound, "load index page failed")
-
-		return
-	}
-
-	t.Execute(c.Writer, nil)
+	//t, err := template.ParseFiles("console/dist/index.html")
+	//if nil != err {
+	//	logger.Errorf("load index page failed: " + err.Error())
+	//	c.String(http.StatusNotFound, "load index page failed")
+	//
+	//	return
+	//}
+	//
+	//t.Execute(c.Writer, nil)
+	c.Redirect(301, "/blogs/travelcoding")
 }
 
 func showChangelogsAction(c *gin.Context) {
@@ -60,7 +58,7 @@ func showStartPageAction(c *gin.Context) {
 	// }
 
 	// t.Execute(c.Writer, nil)
-	c.Redirect(200, "/blogs/travelcoding")
+	c.Redirect(301, "/blogs/travelcoding")
 }
 
 func showPlatInfoAction(c *gin.Context) {
