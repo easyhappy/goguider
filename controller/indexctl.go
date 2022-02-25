@@ -51,15 +51,16 @@ func showChangelogsAction(c *gin.Context) {
 }
 
 func showStartPageAction(c *gin.Context) {
-	t, err := template.ParseFiles("console/dist/start/index.html")
-	if nil != err {
-		logger.Errorf("load start page failed: " + err.Error())
-		c.String(http.StatusNotFound, "load start page failed")
+	// t, err := template.ParseFiles("console/dist/start/index.html")
+	// if nil != err {
+	// 	logger.Errorf("load start page failed: " + err.Error())
+	// 	c.String(http.StatusNotFound, "load start page failed")
 
-		return
-	}
+	// 	return
+	// }
 
-	t.Execute(c.Writer, nil)
+	// t.Execute(c.Writer, nil)
+	c.Redirect(200, "/blogs/travelcoding")
 }
 
 func showPlatInfoAction(c *gin.Context) {
