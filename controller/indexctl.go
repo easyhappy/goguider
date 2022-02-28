@@ -23,16 +23,16 @@ import (
 )
 
 func showIndexAction(c *gin.Context) {
-	//t, err := template.ParseFiles("console/dist/index.html")
-	//if nil != err {
-	//	logger.Errorf("load index page failed: " + err.Error())
-	//	c.String(http.StatusNotFound, "load index page failed")
-	//
-	//	return
-	//}
-	//
-	//t.Execute(c.Writer, nil)
-	c.Redirect(301, "/blogs/travelcoding")
+	t, err := template.ParseFiles("console/dist/index.html")
+	if nil != err {
+		logger.Errorf("load index page failed: " + err.Error())
+		c.String(http.StatusNotFound, "load index page failed")
+
+		return
+	}
+
+	t.Execute(c.Writer, nil)
+	//c.Redirect(301, "/blogs/travelcoding")
 }
 
 func showChangelogsAction(c *gin.Context) {
@@ -49,16 +49,16 @@ func showChangelogsAction(c *gin.Context) {
 }
 
 func showStartPageAction(c *gin.Context) {
-	// t, err := template.ParseFiles("console/dist/start/index.html")
-	// if nil != err {
-	// 	logger.Errorf("load start page failed: " + err.Error())
-	// 	c.String(http.StatusNotFound, "load start page failed")
+	t, err := template.ParseFiles("console/dist/start/index.html")
+	if nil != err {
+		logger.Errorf("load start page failed: " + err.Error())
+		c.String(http.StatusNotFound, "load start page failed")
 
-	// 	return
-	// }
+		return
+	}
 
-	// t.Execute(c.Writer, nil)
-	c.Redirect(301, "/blogs/travelcoding")
+	t.Execute(c.Writer, nil)
+	//c.Redirect(301, "/blogs/travelcoding")
 }
 
 func showPlatInfoAction(c *gin.Context) {
