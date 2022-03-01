@@ -11,6 +11,7 @@
 package controller
 
 import (
+	"html/template"
 	"github.com/88250/pipe/util"
 	"io/ioutil"
 	"net/http"
