@@ -41,7 +41,7 @@ require (
 	github.com/smartystreets/goconvey v1.6.4 // indirect
 	github.com/ugorji/go v1.2.4 // indirect
 	github.com/vinta/pangu v3.0.0+incompatible
-	golang.org/x/crypto v0.0.0-20210322153248-0c34fe9e7dc2 // indirect
+	golang.org/x/crypto v0.1.0 // indirect
 	golang.org/x/xerrors v0.0.0-20200804184101-5ec99f83aff1 // indirect
 	gopkg.in/yaml.v2 v2.4.0
 	moul.io/http2curl v1.0.0 // indirect
